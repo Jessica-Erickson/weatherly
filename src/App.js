@@ -38,7 +38,7 @@ export default class App extends Component {
     localStorage.setItem('locationFinal', this.state.locationValue);
   }
 
-  render() {
+  render () {
     return (
       <div className="App">
         <Banner />
