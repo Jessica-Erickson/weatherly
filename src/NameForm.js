@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './NameForm.css';
-import TextInput from './TextInput';
-import SubmitButton from '.SubmitButton';
 
 export default class NameForm extends Component {
   constructor (props) {
@@ -10,9 +8,20 @@ export default class NameForm extends Component {
 
   render () {
     return (
-      <form className="NameForm" onSubmit={this.props.onNameSubmit}>
-        <input type='text' value={this.props.cValue} placeholder='Enter your name here!' onChange={this.props.onNameChange} />
-        <input type='submit' value='Nice to meet you!' />
+      <form 
+        className="NameForm" 
+        onSubmit={this.props.onNameSubmit}
+      >
+        <input 
+          type='text' 
+          value={this.props.nameValue} 
+          placeholder='Enter your name here!' 
+          onChange={this.props.onNameChange} 
+        />
+        <input 
+          type='submit' 
+          value='Nice to meet you!' 
+        />
       </form>
     );
   }

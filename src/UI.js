@@ -31,14 +31,23 @@ export default class UI extends Component {
   handleNameSubmit (event) {
     event.preventDefault();
     this.setState({userName: this.state.nameValue});
+    localStorage.setItem('userName', this.state.nameValue);
   }
 
   render() {
     return (
       <aside className="UI">
         <Greeting user={this.state.userName} />
-        <NameForm onNameSubmit={this.handleNameSubmit} onNameChange={this.handleNameChange} cValue={this.state.nameValue}/>
-        <SearchForm />
+        <NameForm 
+          onNameSubmit={this.handleNameSubmit} 
+          onNameChange={this.handleNameChange} 
+          nameValue={this.state.nameValue} 
+        />
+        <SearchForm 
+          onLocationSubmit={this.props.onLocationSubmit} 
+          onLocationChange={this.props.onLocationChange}
+          locationValue={this.props.locationValue}
+        />
       </aside>
     );
   }
