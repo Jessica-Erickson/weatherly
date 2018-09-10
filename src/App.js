@@ -22,7 +22,7 @@ export default class App extends Component {
   }
 
   componentDidMount () {
-    if (!localStorage.getItem('locationFinal')) {
+    if (localStorage.getItem('locationFinal') !== null) {
       this.setState({locationFinal: localStorage.getItem('locationFinal')}); 
     }
   }

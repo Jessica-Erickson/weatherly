@@ -3,5 +3,16 @@
   box-shadow: .1rem .1rem 1rem black;
   margin: 1rem;
   padding: 2rem 0 2rem 0;
+  transition: 1s;
   width: 350px;
+}
+
+input {
+  border: .1rem solid darkgray;
+  display: block;
+  font-size: 1rem;
+  height: 2rem;
+  margin: 1rem auto;
+  padding: 0 .5rem;
+  width: 80%;
 }

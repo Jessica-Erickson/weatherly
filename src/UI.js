@@ -10,7 +10,8 @@ export default class UI extends Component {
 
     this.state = {
       nameValue: '',
-      userName: ''
+      userName: '',
+      gaveName: false
     }
 
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -30,14 +31,17 @@ export default class UI extends Component {
 
   handleNameSubmit (event) {
     event.preventDefault();
-    this.setState({userName: this.state.nameValue});
+    this.setState({userName: this.state.nameValue, gaveName: true});
     localStorage.setItem('userName', this.state.nameValue);
   }
 
   render() {
     return (
       <aside className="UI">
-        <Greeting user={this.state.userName} />
+        <Greeting 
+          user={this.state.userName}
+          gaveName={this.state.gaveName} 
+        />
         {this.state.userName === '' && <NameForm 
           onNameSubmit={this.handleNameSubmit} 
           onNameChange={this.handleNameChange} 

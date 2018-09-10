@@ -11,6 +11,8 @@ export default class Greeting extends Component {
 
     if (this.props.user === '') {
       greeting = 'Hi! My name is Weatherly! I don\'t need to know your name to show you the weather, but telling me what your name is first is the polite thing to do. ;)';
+    } else if (this.props.gaveName) {
+      greeting = 'Hi, ' + this.props.user + '!';
     } else {
       greeting = 'Welcome back, ' + this.props.user + '!';
     }
