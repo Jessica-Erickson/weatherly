@@ -15,6 +15,6 @@ export default class Greeting extends Component {
       greeting = 'Welcome back, ' + this.props.user + '!';
     }
 
-    return <h1>{greeting}</h1>;
+    return <h1 className='Greeting'>{greeting}</h1>;
   }
 }

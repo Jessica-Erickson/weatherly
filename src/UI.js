@@ -18,7 +18,7 @@ export default class UI extends Component {
   }
 
   componentDidMount () {
-    if (!localStorage.getItem('userName')) {
+    if (localStorage.getItem('userName') !== null) {
       this.setState({userName: localStorage.getItem('userName')}); 
     }
   }
@@ -38,11 +38,11 @@ export default class UI extends Component {
     return (
       <aside className="UI">
         <Greeting user={this.state.userName} />
-        <NameForm 
+        {this.state.userName === '' && <NameForm 
           onNameSubmit={this.handleNameSubmit} 
           onNameChange={this.handleNameChange} 
           nameValue={this.state.nameValue} 
-        />
+        />}
         <SearchForm 
           onLocationSubmit={this.props.onLocationSubmit} 
           onLocationChange={this.props.onLocationChange}

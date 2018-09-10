@@ -36,6 +36,7 @@ export default class App extends Component {
     event.preventDefault();
     this.setState({locationFinal: this.state.locationValue});
     localStorage.setItem('locationFinal', this.state.locationValue);
+    this.setState({locationValue: ''});
   }
 
   render () {
