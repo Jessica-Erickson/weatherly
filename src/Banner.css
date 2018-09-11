@@ -1,3 +1,17 @@
 .Banner {
-  
+  border-radius: 1rem;
+  box-shadow: .1rem .1rem 1rem black;
+  grid-column: 1 / span 2;
+  margin: 1rem;
+}
+
+ul {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 1rem .6rem 1rem;
+}
+
+li {
+  display: inline;
+  font-size: 1.5rem;
 }

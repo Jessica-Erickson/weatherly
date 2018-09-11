@@ -27,25 +27,28 @@ export default class App extends Component {
     if (localStorage.getItem('locationFinal') !== null) {
       this.setState({locationFinal: localStorage.getItem('locationFinal')}); 
     }
+    this.getConditionsData();
+    this.getForecastData();
+    this.getHourlyData();
   }
 
   getConditionsData () {
     const smallConditions = {
-      city: data.response.current_observation.display_location.full,
-      condition: data.response.current_observation.weather,
-      weekday: data.response.forecast.simpleforecast.forecastday[0].date.weekday,
-      month: data.response.forecast.simpleforecast.forecastday[0].date.monthname,
-      date: data.response.forecast.simpleforecast.forecastday[0].date.day,
-      temp: data.response.current_observation.temp_f,
-      high: data.response.forecast.simpleforecast.forecastday[0].high.fahrenheit,
-      low: data.response.forecast.simpleforecast.forecastday[0].low.fahrenheit,
-      summary: data.response.forecast.txt_forecast.forecastday[0].fcttext
+      city: data.current_observation.display_location.full,
+      condition: data.current_observation.weather,
+      temp: data.current_observation.temp_f,
+      weekday: data.forecast.simpleforecast.forecastday[0].date.weekday,
+      month: data.forecast.simpleforecast.forecastday[0].date.monthname,
+      date: data.forecast.simpleforecast.forecastday[0].date.day,
+      high: data.forecast.simpleforecast.forecastday[0].high.fahrenheit,
+      low: data.forecast.simpleforecast.forecastday[0].low.fahrenheit,
+      summary: data.forecast.txt_forecast.forecastday[0].fcttext
     }
     this.setState({conditionsData: smallConditions});
   }
 
   getForecastData () {
-    const imgArray = data.response.forecast.txt_forecast.forecastday.reduce((acc, period, index) => {
+    const imgArray = data.forecast.txt_forecast.forecastday.reduce((acc, period, index) => {
       if (index % 2) {
         acc[acc.length - 1] = Object.assign(acc[acc.length - 1], {night: period.icon_url})
       } else {
@@ -53,7 +56,7 @@ export default class App extends Component {
       }
       return acc;
     }, []);    
-    const smallForecast = data.response.forecast.simpleforecast.forecastday.map((day, index) => {
+    const smallForecast = data.forecast.simpleforecast.forecastday.map((day, index) => {
       return {
         day: day.date.weekday, 
         high: day.high.fahrenheit, 
@@ -65,7 +68,7 @@ export default class App extends Component {
   }
 
   getHourlyData () {
-    const smallHours = data.response.hourly_forecast.slice(0, 7).map(hour => {
+    const smallHours = data.hourly_forecast.slice(0, 7).map(hour => {
       return {hour: hour.FCTTIME.civil, img: hour.icon_url, temp: hour.temp.english}
     })
     this.setState({hourlyData: smallHours});
@@ -86,7 +89,7 @@ export default class App extends Component {
   render () {
     return (
       <div className="App">
-        <Banner />
+        <Banner data={this.state.conditionsData} />
         <UI 
           onLocationSubmit={this.handleLocationSubmit} 
           onLocationChange={this.handleLocationChange} 
