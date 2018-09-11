@@ -95,8 +95,8 @@ export default class App extends Component {
           onLocationChange={this.handleLocationChange} 
           locationValue={this.state.locationValue} 
         />
-        <Forecast10Day />
-        <ForecastHourly /> 
+        <Forecast10Day data={this.state.forecastData} />
+        <ForecastHourly data={this.state.hourlyData} /> 
       </div>
     );
   }
