@@ -1,0 +1,22 @@
+.DayCard {
+  border-radius: 1rem;
+  box-shadow: .1rem .1rem .4rem black;
+  padding: .7rem;
+  text-align: center;
+  width: 17%;
+}
+
+.DayCard h2 {
+  font-size: 1.5rem;
+  text-decoration: underline; 
+}
+
+.DayCard img {
+  display: block;
+  margin: 0 auto;
+}
+
+.DayCard h3 {
+  margin-top: .3rem;
+  margin-bottom: .3rem;
+}

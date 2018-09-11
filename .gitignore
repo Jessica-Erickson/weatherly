@@ -10,7 +10,7 @@
 /build
 
 # misc
-/src/Key.js
+/src/key.js
 .DS_Store
 .env.local
 .env.development.local

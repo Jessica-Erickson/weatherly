@@ -1,0 +1,24 @@
+.HourCard {
+  border-radius: 1rem;
+  box-shadow: .1rem .1rem .4rem black;
+  display: grid;
+  grid-auto-flow: row dense;
+  grid-template: auto
+                 auto
+                 / 1fr auto;
+  padding: .5rem;
+}
+
+.HourCard img {
+  grid-row: span 2;
+  height: 60px;
+}
+
+.HourCard h1 {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.HourCard h3 {
+  margin: .1rem .4rem 0 .4rem;
+}
