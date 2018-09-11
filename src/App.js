@@ -50,9 +50,9 @@ export default class App extends Component {
   getForecastData () {
     const imgArray = data.forecast.txt_forecast.forecastday.reduce((acc, period, index) => {
       if (index % 2) {
-        acc[acc.length - 1] = Object.assign(acc[acc.length - 1], {night: period.icon_url})
+        acc[acc.length - 1] = Object.assign(acc[acc.length - 1], {night: period.icon_url, night_alt: period.fcttext})
       } else {
-        acc.push({day: period.icon_url});
+        acc.push({day: period.icon_url, day_alt: period.fcttext});
       }
       return acc;
     }, []);    
@@ -62,14 +62,20 @@ export default class App extends Component {
         high: day.high.fahrenheit, 
         low: day.low.fahrenheit, 
         day_img: imgArray[index].day, 
-        night_img: imgArray[index].night}
-    });
+        night_img: imgArray[index].night,
+        day_alt: imgArray[index].day_alt,
+        night_alt: imgArray[index].night_alt
+    }});
     this.setState({forecastData: smallForecast});
   }
 
   getHourlyData () {
     const smallHours = data.hourly_forecast.slice(0, 7).map(hour => {
-      return {hour: hour.FCTTIME.civil, img: hour.icon_url, temp: hour.temp.english}
+      return {
+        hour: hour.FCTTIME.civil, 
+        img: hour.icon_url, 
+        temp: hour.temp.english, 
+        alt: hour.condition}
     })
     this.setState({hourlyData: smallHours});
   }
