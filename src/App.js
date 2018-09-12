@@ -4,8 +4,7 @@ import Banner from './Banner';
 import UI from './UI';
 import Forecast10Day from './Forecast10Day';
 import ForecastHourly from './ForecastHourly';
-import data from './data';
-// import key from './key';
+import key from './key';
 
 export default class App extends Component {
   constructor() {
@@ -24,15 +23,18 @@ export default class App extends Component {
   }
 
   componentDidMount () {
+    fetch('http://api.wunderground.com/api/' + key + '/conditions/forecast10day/hourly/q/CO/Denver.json').then(response => response.json())
+      .then(response => {
+        this.getConditionsData(response);
+        this.getForecastData(response);
+        this.getHourlyData(response);
+      })
     if (localStorage.getItem('locationFinal') !== null) {
       this.setState({locationFinal: localStorage.getItem('locationFinal')}); 
     }
-    this.getConditionsData();
-    this.getForecastData();
-    this.getHourlyData();
   }
 
-  getConditionsData () {
+  getConditionsData (data) {
     const smallConditions = {
       city: data.current_observation.display_location.full,
       condition: data.current_observation.weather,
@@ -47,7 +49,7 @@ export default class App extends Component {
     this.setState({conditionsData: smallConditions});
   }
 
-  getForecastData () {
+  getForecastData (data) {
     const imgArray = data.forecast.txt_forecast.forecastday.reduce((acc, period, index) => {
       if (index % 2) {
         acc[acc.length - 1] = Object.assign(acc[acc.length - 1], {night: period.icon_url, night_alt: period.fcttext})
@@ -69,7 +71,7 @@ export default class App extends Component {
     this.setState({forecastData: smallForecast});
   }
 
-  getHourlyData () {
+  getHourlyData (data) {
     const smallHours = data.hourly_forecast.slice(0, 7).map(hour => {
       return {
         hour: hour.FCTTIME.civil, 
