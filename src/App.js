@@ -53,6 +53,8 @@ export default class App extends Component {
         summary: data.forecast.txt_forecast.forecastday[0].fcttext
       }
       this.setState({conditionsData: smallConditions});
+    } else {
+      this.setState({conditionsData: 'error'});
     }
   }
 
@@ -77,6 +79,8 @@ export default class App extends Component {
           night_alt: imgArray[index].night_alt
       }});
       this.setState({forecastData: smallForecast});
+    } else {
+      this.setState({forecastData: 'error'});
     }
   }
 
@@ -90,6 +94,8 @@ export default class App extends Component {
           alt: hour.condition}
       })
       this.setState({hourlyData: smallHours});
+    } else {
+      this.setState({hourlyData: 'error'});
     }
   }
 

@@ -4,11 +4,10 @@ import './Banner.css';
 export default class Banner extends Component {
   constructor (props) {
     super(props);
-
   }
 
   render() {
-    if (props.data.city !== undefined) {
+    if (this.props.data !== 'error') {
       return (
         <header className="Banner">
           <ul>
@@ -25,7 +24,7 @@ export default class Banner extends Component {
     } else {
       return (
         <header className="Banner">
-          <h1>I'm sorry; I can't find any data for that location :(</h1>
+          <h1>I'm sorry; I can't find any data for your last location :(</h1>
         </header>
       );
     }
