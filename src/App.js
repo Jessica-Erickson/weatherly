@@ -15,7 +15,8 @@ export default class App extends Component {
       locationFinal: '',
       conditionsData: {},
       forecastData: [],
-      hourlyData: []
+      hourlyData: [],
+      didSearch: false
     };
 
     this.handleLocationChange = this.handleLocationChange.bind(this);
@@ -116,6 +117,7 @@ export default class App extends Component {
         this.getHourlyData(response);
       })
     this.setState({locationValue: ''});
+    this.setState({didSearch: true});
   }
 
   render () {
@@ -125,7 +127,8 @@ export default class App extends Component {
         <UI 
           onLocationSubmit={this.handleLocationSubmit} 
           onLocationChange={this.handleLocationChange} 
-          locationValue={this.state.locationValue} 
+          locationValue={this.state.locationValue}
+          didSearch={this.state.didSearch} 
         />
         <Forecast10Day data={this.state.forecastData} />
         <ForecastHourly data={this.state.hourlyData} /> 
