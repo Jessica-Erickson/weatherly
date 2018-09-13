@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './UI.css';
+import './Controls.css';
 import Greeting from './Greeting';
 import NameForm from './NameForm';
 import SearchForm from './SearchForm';
 
-export default class UI extends Component {
+export default class Controls extends Component {
   constructor (props) {
     super(props)
 
@@ -37,7 +37,7 @@ export default class UI extends Component {
 
   render() {
     return (
-      <aside className="UI">
+      <aside className="Controls">
         <Greeting 
           user={this.state.userName}
           gaveName={this.state.gaveName}

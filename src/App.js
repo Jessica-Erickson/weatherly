@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Banner from './Banner';
-import UI from './UI';
+import Controls from './Controls';
 import Forecast10Day from './Forecast10Day';
 import ForecastHourly from './ForecastHourly';
 import key from './key';
@@ -135,7 +135,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <Banner data={this.state.conditionsData} />
-        <UI 
+        <Controls 
           onLocationSubmit={this.handleLocationSubmit} 
           onLocationChange={this.handleLocationChange} 
           locationValue={this.state.locationValue}
