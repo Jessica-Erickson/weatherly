@@ -63,7 +63,7 @@ export default class App extends Component {
     if (data.forecast !== undefined) {
       const imgArray = data.forecast.txt_forecast.forecastday.reduce((acc, period, index) => {
         if (index % 2) {
-        acc[acc.length - 1] = Object.assign(acc[acc.length - 1], {night: period.icon_url, night_alt: period.  fcttext})
+        acc[acc.length - 1] = Object.assign(acc[acc.length - 1], {night: period.icon_url, night_alt: period.fcttext})
         } else {
           acc.push({day: period.icon_url, day_alt: period.fcttext});
         }
