@@ -12,7 +12,7 @@ export default class App extends Component {
 
     this.state = {
       locationValue: '',
-      locationFinal: 'Denver, CO',
+      locationFinal: '',
       conditionsData: {},
       forecastData: [],
       hourlyData: []
@@ -96,6 +96,13 @@ export default class App extends Component {
     event.preventDefault();
     this.setState({locationFinal: this.state.locationValue});
     localStorage.setItem('locationFinal', this.state.locationValue);
+    fetch('http://api.wunderground.com/api/' + key + '/conditions/forecast10day/hourly/q/' + this.state.locationValue + '.json')
+      .then(response => response.json())
+      .then(response => {
+        this.getConditionsData(response);
+        this.getForecastData(response);
+        this.getHourlyData(response);
+      })
     this.setState({locationValue: ''});
   }
 
