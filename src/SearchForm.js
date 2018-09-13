@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './SearchForm.css';
+import largestCities from './largestCities';
 
 export default class SearchForm extends Component {
   constructor (props) {

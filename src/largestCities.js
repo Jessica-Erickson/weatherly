@@ -1,4 +1,4 @@
-export default largestCities = [
+const largestCities = [
     "New York, NY",
     "Los Angeles, CA",
     "Chicago, IL",
@@ -1000,3 +1000,5 @@ export default largestCities = [
     "Beloit, WI",
     "Panama City, FL"
   ]
+
+export default largestCities;
