@@ -52,6 +52,7 @@ export default class UI extends Component {
           onLocationSubmit={this.props.onLocationSubmit} 
           onLocationChange={this.props.onLocationChange}
           locationValue={this.props.locationValue}
+          suggestions={this.props.suggestions}
         />
       </aside>
     );

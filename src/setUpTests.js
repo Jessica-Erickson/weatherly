@@ -1,7 +1,7 @@
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-class LocalStorage () {
+class LocalStorage {
   constructor() {
     this.store = {}
   }
