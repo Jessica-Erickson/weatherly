@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Forecast10Day.css';
-import DayCard from './DayCard'
+import DayCard from './DayCard';
 
 export default class Forecast10Day extends Component {
   constructor (props) {
