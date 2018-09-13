@@ -40,7 +40,8 @@ export default class UI extends Component {
       <aside className="UI">
         <Greeting 
           user={this.state.userName}
-          gaveName={this.state.gaveName} 
+          gaveName={this.state.gaveName}
+          didSearch={this.props.didSearch}
         />
         {this.state.userName === '' && <NameForm 
           onNameSubmit={this.handleNameSubmit} 
