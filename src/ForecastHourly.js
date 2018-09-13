@@ -5,8 +5,8 @@ import HourCard from './HourCard';
 export default function ForecastHourly (props) {
   return (
     <aside className="ForecastHourly">
-      {props.data !== 'error' && props.data.map(datum => {
-        return <HourCard data={datum} />
+      {props.data !== 'error' && props.data.map((datum, index) => {
+        return <HourCard data={datum} key={index} />
       })}
     </aside>
   );

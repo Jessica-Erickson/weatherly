@@ -5,6 +5,8 @@ import UI from './UI';
 import Forecast10Day from './Forecast10Day';
 import ForecastHourly from './ForecastHourly';
 import key from './key';
+import largestCities from './largestCities';
+import Trie from 'boilerplate';
 
 export default class App extends Component {
   constructor() {
@@ -16,8 +18,12 @@ export default class App extends Component {
       conditionsData: {},
       forecastData: [],
       hourlyData: [],
-      didSearch: false
+      didSearch: false,
+      trie: new Trie(),
+      suggestions: []
     };
+
+    this.state.trie.populate(largestCities);
 
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
@@ -103,6 +109,11 @@ export default class App extends Component {
   handleLocationChange (event) {
     event.preventDefault();
     this.setState({locationValue: event.target.value});
+    if (event.target.value !== '') {
+      this.setState({suggestions: this.state.trie.suggest(event.target.value).slice(0, 10)});
+    } else {
+      this.setState({suggestions: []});
+    }
   }
 
   handleLocationSubmit (event) {
@@ -129,6 +140,7 @@ export default class App extends Component {
           onLocationChange={this.handleLocationChange} 
           locationValue={this.state.locationValue}
           didSearch={this.state.didSearch} 
+          suggestions={this.state.suggestions}
         />
         <Forecast10Day data={this.state.forecastData} />
         <ForecastHourly data={this.state.hourlyData} /> 

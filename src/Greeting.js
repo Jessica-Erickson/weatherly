@@ -5,9 +5,9 @@ export default function Greeting(props) {
    let greeting;
 
    if (props.didSearch && props.user === '') {
-      greeting = 'Ok! Here is the weather you asked for :) (You can still tell me your name whenever you arecomfortable doing so!)';
+      greeting = 'Ok! Here is the weather you asked for :) (You can still tell me your name whenever you are comfortable doing so!)';
    } else if (props.user === '') {
-      greeting = 'Hi! My name is Weatherly! I don\'t need to know your name to show you the weather, buttelling me what your name is first is the polite thing to do. ;)';
+      greeting = 'Hi! My name is Weatherly! I don\'t need to know your name to show you the weather, but telling me what your name is first is the polite thing to do. ;)';
    } else if (props.gaveName) {
      greeting = 'Hi, ' + props.user + '!';
    } else {
