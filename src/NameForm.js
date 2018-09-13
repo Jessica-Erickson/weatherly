@@ -1,28 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './NameForm.css';
 
-export default class NameForm extends Component {
-  constructor (props) {
-    super(props)
-  }
-
-  render () {
-    return (
-      <form 
-        className="NameForm" 
-        onSubmit={this.props.onNameSubmit}
-      >
-        <input 
-          type='text' 
-          value={this.props.nameValue} 
-          placeholder='Enter your name here!' 
-          onChange={this.props.onNameChange} 
-        />
-        <input 
-          type='submit' 
-          value='Nice to meet you!' 
-        />
-      </form>
-    );
-  }
+export default function NameForm(props) {
+  return (
+    <form 
+      className="NameForm" 
+      onSubmit={props.onNameSubmit}
+    >
+      <input 
+        type='text' 
+        value={props.nameValue} 
+        placeholder='Enter your name here!' 
+        onChange={props.onNameChange} 
+      />
+      <input 
+        type='submit' 
+        value='Nice to meet you!' 
+      />
+    </form>
+  );
 }
