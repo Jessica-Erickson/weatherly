@@ -19,11 +19,12 @@ export default class App extends Component {
       forecastData: [],
       hourlyData: [],
       didSearch: false,
-      trie: new Trie(),
       suggestions: []
     };
 
-    this.state.trie.populate(largestCities);
+    this.trie = new Trie();
+
+    this.trie.populate(largestCities);
 
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
