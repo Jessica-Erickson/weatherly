@@ -10,7 +10,7 @@ export default class Forecast10Day extends Component {
   render() {
     return (
       <main className="Forecast10Day">
-        {this.props.data.map(datum => {
+        {this.props.data[0] !== undefined && this.props.data.map(datum => {
           return <DayCard data={datum} />
         })}
       </main>

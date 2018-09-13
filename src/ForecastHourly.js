@@ -10,7 +10,7 @@ export default class ForecastHourly extends Component {
   render() {
     return (
       <aside className="ForecastHourly">
-        {this.props.data.map(datum => {
+        {this.props.data[0] !== undefined && this.props.data.map(datum => {
           return <HourCard data={datum} />
         })}
       </aside>
