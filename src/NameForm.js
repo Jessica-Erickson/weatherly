@@ -15,7 +15,7 @@ export default function NameForm(props) {
       />
       <input 
         type='submit' 
-        value='Click to Submit!' 
+        value='Nice to meet you!' 
       />
     </form>
   );

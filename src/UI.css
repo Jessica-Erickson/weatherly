@@ -7,11 +7,31 @@
 }
 
 input {
-  border: .1rem solid darkgray;
   display: block;
   font-size: 1rem;
   height: 2rem;
   margin: 1rem auto;
   padding: 0 .5rem;
   width: 80%;
+}
+
+input[type='text'] {
+  border: .1rem solid darkgray;
+}
+
+input[type='submit'] {
+  background-color: lightblue;
+  border: .2rem outset #C1ECFA;
+}
+
+input[type='submit']:hover {
+  color: white;
+  background-color: cornflowerblue;
+  border: .2rem outset #78A9FF;
+}
+
+input[type='submit']:active {
+  color: white;
+  background-color: #5081D9;
+  border: .2rem inset #3C6DC5;
 }
