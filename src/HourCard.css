@@ -6,6 +6,7 @@
   grid-template: auto
                  auto
                  / 1fr auto;
+  grid-column-gap: 5px;
   padding: .5rem;
 }
 

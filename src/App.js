@@ -23,15 +23,20 @@ export default class App extends Component {
   }
 
   componentDidMount () {
-    fetch('http://api.wunderground.com/api/' + key + '/conditions/forecast10day/hourly/q/CO/Denver.json').then(response => response.json())
+    let location;
+    if (localStorage.getItem('locationFinal') !== null) {
+      this.setState({locationFinal: localStorage.getItem('locationFinal')});
+      location = localStorage.getItem('locationFinal');
+    } else {
+      location = 'Denver, CO';
+    }
+    fetch('http://api.wunderground.com/api/' + key + '/conditions/forecast10day/hourly/q/' + location + '.json')
+      .then(response => response.json())
       .then(response => {
         this.getConditionsData(response);
         this.getForecastData(response);
         this.getHourlyData(response);
       })
-    if (localStorage.getItem('locationFinal') !== null) {
-      this.setState({locationFinal: localStorage.getItem('locationFinal')}); 
-    }
   }
 
   getConditionsData (data) {
