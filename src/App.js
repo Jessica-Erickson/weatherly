@@ -107,11 +107,17 @@ export default class App extends Component {
     }
   }
 
+  storeLocation (data) {
+    if (data.response.error === undefined) {
+      localStorage.setItem('locationFinal', this.state.locationFinal);
+    }
+  }
+
   handleLocationChange (event) {
     event.preventDefault();
     this.setState({locationValue: event.target.value});
     if (event.target.value !== '') {
-      this.setState({suggestions: this.state.trie.suggest(event.target.value).slice(0, 10)});
+      this.setState({suggestions: this.trie.suggest(event.target.value).slice(0, 10)});
     } else {
       this.setState({suggestions: []});
     }
@@ -119,17 +125,15 @@ export default class App extends Component {
 
   handleLocationSubmit (event) {
     event.preventDefault();
-    this.setState({locationFinal: this.state.locationValue});
-    localStorage.setItem('locationFinal', this.state.locationValue);
+    this.setState({locationFinal: this.state.locationValue, locationValue: '', didSearch: true});
     fetch('http://api.wunderground.com/api/' + key + '/conditions/forecast10day/hourly/q/' + this.state.locationValue + '.json')
       .then(response => response.json())
       .then(response => {
+        this.storeLocation(response);
         this.getConditionsData(response);
         this.getForecastData(response);
         this.getHourlyData(response);
       })
-    this.setState({locationValue: ''});
-    this.setState({didSearch: true});
   }
 
   render () {
