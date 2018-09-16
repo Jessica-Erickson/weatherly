@@ -109,6 +109,7 @@ export default class App extends Component {
 
   storeLocation (data) {
     if (data.response.error === undefined) {
+      this.setState({didSearch: true});
       localStorage.setItem('locationFinal', this.state.locationFinal);
     }
   }
@@ -125,7 +126,7 @@ export default class App extends Component {
 
   handleLocationSubmit (event) {
     event.preventDefault();
-    this.setState({locationFinal: this.state.locationValue, locationValue: '', didSearch: true});
+    this.setState({locationFinal: this.state.locationValue, locationValue: ''});
     fetch('http://api.wunderground.com/api/' + key + '/conditions/forecast10day/hourly/q/' + this.state.locationValue + '.json')
       .then(response => response.json())
       .then(response => {
