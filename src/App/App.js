@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import Banner from './Banner';
-import Controls from './Controls';
-import Forecast10Day from './Forecast10Day';
-import ForecastHourly from './ForecastHourly';
-import key from './key';
-import largestCities from './largestCities';
+import Banner from '../Banner/Banner';
+import Controls from '../Controls/Controls';
+import Forecast10Day from '../Forecast10Day/Forecast10Day';
+import ForecastHourly from '../ForecastHourly/ForecastHourly';
+import key from '../key';
+import largestCities from '../largestCities';
 import Trie from 'boilerplate';
 
 export default class App extends Component {

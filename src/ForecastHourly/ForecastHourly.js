@@ -1,6 +1,6 @@
 import React from 'react';
 import './ForecastHourly.css';
-import HourCard from './HourCard';
+import HourCard from '../HourCard/HourCard';
 
 export default function ForecastHourly (props) {
   return (

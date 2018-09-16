@@ -1,6 +1,6 @@
 import React from 'react';
 import './Forecast10Day.css';
-import DayCard from './DayCard';
+import DayCard from '../DayCard/DayCard';
 
 export default function Forecast10Day(props) {
   return (

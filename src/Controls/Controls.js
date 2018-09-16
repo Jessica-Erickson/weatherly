@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './Controls.css';
-import Greeting from './Greeting';
-import NameForm from './NameForm';
-import SearchForm from './SearchForm';
+import Greeting from '../Greeting/Greeting';
+import NameForm from '../NameForm/NameForm';
+import SearchForm from '../SearchForm/SearchForm';
 
 export default class Controls extends Component {
   constructor (props) {
