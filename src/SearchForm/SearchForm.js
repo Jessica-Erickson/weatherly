@@ -15,7 +15,7 @@ export default function SearchForm (props) {
         list='suggestions' 
       />
       <datalist id='suggestions'>
-        {props.suggestions.map((suggestion, index) => {
+        {props.suggestions[0] !== props.locationValue && props.suggestions.map((suggestion, index) => {
           return <option value={suggestion} key={index} />
         })}
       </datalist>

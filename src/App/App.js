@@ -117,7 +117,7 @@ export default class App extends Component {
   handleLocationChange (event) {
     event.preventDefault();
     this.setState({locationValue: event.target.value});
-    if (event.target.value !== '') {
+    if (event.target.value !== '' && event.target.value !== this.state.suggestions[0]) {
       this.setState({suggestions: this.trie.suggest(event.target.value).slice(0, 10)});
     } else {
       this.setState({suggestions: []});
