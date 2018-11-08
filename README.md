@@ -4,4 +4,8 @@ To start the project I did the following planning, complete with what I think ar
 
 ![Planning Docs](public/planning-stage.jpg)
 
+# Desktop Version
+
+![Screen Shot](./screenshot.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
